@@ -1,0 +1,39 @@
+dependencies:
+- name: d3
+  version: 3.5.5
+  src: htmlwidgets/stm-viz-master/lib/d3
+  script: d3.min.js
+- name: colorbrewer
+  version: 0.1
+  src: htmlwidgets/stm-viz-master/lib/d3
+  script: colorbrewer.js
+- name: jquery
+  version: 1.8.2
+  src: htmlwidgets/stm-viz-master/lib
+  script: jquery-1.8.2.min.js
+- name: jquery-ui
+  version: 1.10.4
+  src: htmlwidgets/stm-viz-master/lib/jquery-ui/js
+  script: v1.10.4.js
+- name: poshytip
+  version: 1.2
+  src: htmlwidgets/stm-viz-master/lib/poshytip/src
+  script: poshytip.min.js
+- name: select2
+  version: 3.2
+  src: htmlwidgets/stm-viz-master/lib/select2
+  script: select2.min.js
+  stylesheet: select2.css
+- name: controls
+  version: 0.1
+  src: htmlwidgets/stm-viz-master/lib/controls
+  script: controls.js
+  stylesheet: controls.css
+- name: stmBrowser
+  version: 1.0
+  src: htmlwidgets/stm-viz-master
+  script: ['js/settings.js','js/charts/Chart.js',
+            'js/charts/ScatterChart.js','js/charts/TextChart.js',
+            'js/views/SingleView.js','js/views/TextView.js']
+  stylesheet: ['css/chart.css','css/TextView.css','css/tip.css']
+
