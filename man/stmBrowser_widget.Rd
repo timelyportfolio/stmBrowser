@@ -5,7 +5,7 @@
 \title{Function for outputing STM dataset into json}
 \usage{
 stmBrowser_widget(mod, data, covariates, text, id = NULL, n = 1000,
-  labeltype = "prob")
+  labeltype = "prob", width = NULL, height = NULL)
 }
 \arguments{
 \item{mod}{stm model}

@@ -13,10 +13,14 @@
 #' @export
 
 stmBrowser_widget <- function(
-  mod, data, covariates, text, id=NULL, n=1000, labeltype="prob"
+  mod, data, covariates, text, id=NULL, n=1000, labeltype="prob",
+  width = NULL, height = NULL
 ){
 
-  x <- list()
+  x <- list(
+    options = NULL
+    ,data = NULL
+  )
   
   # Create widget
   htmlwidgets::createWidget(
@@ -24,8 +28,7 @@ stmBrowser_widget <- function(
     x = x,
     width = width,
     height = height,
-    package = "stmBrowser",
-    htmlwidgets::sizingPolicy(viewer.suppress = viewer.suppress)
+    package = "stmBrowser"
   )
   
 }
