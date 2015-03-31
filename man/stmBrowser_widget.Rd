@@ -2,7 +2,7 @@
 % Please edit documentation in R/stmBrowser_widget.R
 \name{stmBrowser_widget}
 \alias{stmBrowser_widget}
-\title{Function for outputing STM dataset into json}
+\title{Create an htmlwidget view of STM}
 \usage{
 stmBrowser_widget(mod, data, covariates, text, id = NULL, n = 1000,
   labeltype = "prob", width = NULL, height = NULL)
@@ -23,6 +23,6 @@ An object of class \code{htmlwidget} that will
   and within Shiny output bindings.
 }
 \description{
-Function for outputing STM dataset into json
+Create an htmlwidget view of STM
 }
 

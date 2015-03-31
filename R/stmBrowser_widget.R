@@ -1,4 +1,4 @@
-#' Function for outputing STM dataset into json
+#' Create an htmlwidget view of STM
 #' 
 #' @param mod stm model
 #' @param data data for stm model
