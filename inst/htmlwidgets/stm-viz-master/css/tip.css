@@ -1,4 +1,4 @@
-.tip {
+.stmBrowser-tip {
 	opacity:0.9;
 	z-index:1000;
 	text-align:left;
@@ -12,5 +12,5 @@
 	box-shadow: 2px 2px 5px #888;
 	pointer-events:none;
 	max-width: 150px;
-
+	font-size:.75em;
 }
