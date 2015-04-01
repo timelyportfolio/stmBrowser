@@ -1,17 +1,17 @@
-body {
+.stmBrowser {
 	font-size:130%;
 }
 
-.chart .axis line {
+.stmBrowser .chart .axis line {
 	stroke:black;
 	opacity:.2 !important;
 }
 
-.chart .axis path{
+.stmBrowser .chart .axis path{
 	fill:none;
 }
 
-.chart .axis text, .chart .axis line {
+.stmBrowser .chart .axis text, .chart .axis line {
 	opacity:.6;
 	font-family:helvetica;
 	font-size:.6em;
@@ -21,32 +21,32 @@ body {
 
 
 
-.view-title {
+.stmBrowser .view-title {
 	font-size:.8em;
 	padding-top:10px;
 }
 
-#bottom {
+.stmBrowser #bottom {
 	font-size:.5em;
 }
 
-.chart svg {
+.stmBrowser .chart svg {
 	font-family:helvetica;
 	font-size:.7em;
 }
 
-.chart .div-title {
+.stmBrowser .chart .div-title {
 	font-size:.8em;
 	font-family:georgia;
 	text-align:center;
 	padding-top:10px;
 }
 
-.chart .tick line {
+.stmBrowser .chart .tick line {
 	opacity:.2;
 }
 
-.chart .ytitle-div {
+.stmBrowser .chart .ytitle-div {
 	-webkit-transform: rotate(270deg);
 	-moz-transform: rotate(270deg);
 	-o-transform: rotate(270deg);
@@ -59,50 +59,45 @@ body {
 	position: absolute;
 }
 
-.chart .axis-label {
+.stmBrowser .chart .axis-label {
 	font-size:.7em;
 	font-family:helvetica;
 	opacity:.6;
 }
 
-.chart .xtitle-div {
+.stmBrowser .chart .xtitle-div {
 	text-align:center;
 }
 
-.chart .line-label {
+.stmBrowser .chart .line-label {
 	font-family:helvetica;
 }
 
-#imagechart-svg .label {
+.stmBrowser #imagechart-svg .label {
 	font-size:1.1em;
 }
 
-#bottom {
+.stmBrowser #bottom {
 	position:absolute;
 	left:0px;
 	padding-top:7px;
 }
 
-.hover {
+.stmBrowser .hover {
 	pointer-events:none;
 }
 
-.icon:hover {
+.stmBrowser .icon:hover {
 	opacity:1 !important;
 	cursor:pointer;
 }
 
-.icon:active {
+.stmBrowser .icon:active {
 	opacity:.7 !important;
 	cursor:pointer;
 }
 
-/* 
-body {
-	margin:0px;
-}
- */
-#container {
+.stmBrowser #container {
 	position:absolute;
 	height:100%;
 	width:100%;
@@ -117,45 +112,37 @@ body {
  */
 }
 
-#chart-container {
+.stmBrowser #chart-container {
 	margin: 8px;
 }
 
-#imagechart-g .axis text {
+.stmBrowser #imagechart-g .axis text {
 	font-size:1em;
 }
 
-.tip {
-	font-size:.5em;
-}
-
-.overlay {
+.stmBrowser .overlay {
   fill: none;
   pointer-events: all;
   cursor:pointer;
 }
 
-.circle {
+.stmBrowser .circle {
 	cursor: pointer;
 	opacity:.7;
 }
 
-li {
-	font-size:10px;
-}
-
-#control-label-buttons-zoom {
+.stmBrowser  #control-label-buttons-zoom {
 	padding-right:5px;
 }
 
-#control-wrapper-buttons-zoom {
+.stmBrowser #control-wrapper-buttons-zoom {
 	width:30px;
 	position:absolute;
 	font-size:.6em;
 }
 
 
-#control-wrapper-buttons-zoom .control-button {
+.stmBrowser  #control-wrapper-buttons-zoom .control-button {
 	margin: 0px;
 	display: inline-block;
 	float: left;
@@ -163,14 +150,14 @@ li {
 	color:#454545 !important;
 }
 
-#control-container-buttons-zoom .control-button:first-of-type{
+.stmBrowser  #control-container-buttons-zoom .control-button:first-of-type{
 	border-radius: 0;
 	border-top-left-radius:5px;
 	border-top-right-radius:5px;
 	border-bottom: 0;
 }
 
-#control-container-buttons-zoom .control-button:last-of-type{
+.stmBrowser #control-container-buttons-zoom .control-button:last-of-type{
 	border-radius: 0;
 	border-bottom-left-radius:5px;
 	border-bottom-right-radius:5px;
