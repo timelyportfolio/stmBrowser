@@ -182,7 +182,7 @@ SingleView.prototype.addPoshyEvents = function() {
 			hideTimeout: 0, 
 			alignX: 'center', 
 			alignY: 'inner-bottom', 
-			className: 'tip',
+			className: 'stmBrowser-tip',
 			offsetY: 10,
 			content: poshy.content
 		}
