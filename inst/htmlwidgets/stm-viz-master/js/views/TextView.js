@@ -13,9 +13,9 @@ var TextView = function(sets) {
 		idVariable:'id',
 		hasControls:true,  
 	}
-	topicsObj = {}
-	topics.map(function(d){
-		topicsObj[d.name] = d.name + ' (' + d.list + ')'
+	sets.topicsObj = {}
+	sets.topics.map(function(d){
+		sets.topicsObj[d.name] = d.name + ' (' + d.list + ')'
 	})
 	var initSettings = $.extend(false, defaults, sets)
 	self.init(initSettings)
@@ -157,7 +157,7 @@ TextView.prototype.loadData = function(callback) {
     	if(arguments[i].id != undefined) args.push(arguments[i].id)
     }
 	if(self.charts == undefined) self.charts = []
-	//self.settings.data = data
+
 	if(self.settings.loadedData != true) self.getLabels()
 	self.settings.loadedData = true
 	if(typeof callback == 'function') {
@@ -197,7 +197,7 @@ TextView.prototype.buildControls = function() {
 		type: 'select',
 		options:function() {
 			return self.xVarValues.map(function(d){
-				var text = topicsObj[d] == undefined ? d : topicsObj[d]
+				var text = self.settings.topicsObj[d] == undefined ? d : self.settings.topicsObj[d]
 				return {id:d, text:text}
 			})
 		},
@@ -211,7 +211,7 @@ TextView.prototype.buildControls = function() {
 		type: 'select',
 		options:function() {
 			return self.yVarValues.map(function(d){
-				var text = topicsObj[d] == undefined ? d : topicsObj[d]
+				var text = self.settings.topicsObj[d] == undefined ? d : self.settings.topicsObj[d]
 				return {id:d, text:text}
 			})
 		},
@@ -226,7 +226,7 @@ TextView.prototype.buildControls = function() {
 		type: 'select',
 		options:function() {
 			return self.radiusValues.map(function(d){
-				var text = topicsObj[d] == undefined ? d : topicsObj[d]
+				var text = self.settings.topicsObj[d] == undefined ? d : self.settings.topicsObj[d]
 				return {id:d, text:text}
 			})
 		},
@@ -240,7 +240,7 @@ TextView.prototype.buildControls = function() {
 		type: 'select',
 		options:function() {
 			return self.colorValues.map(function(d){
-				var text = topicsObj[d] == undefined ? d : topicsObj[d]
+				var text = self.settings.topicsObj[d] == undefined ? d : self.settings.topicsObj[d]
 				return {id:d, text:text}
 			})
 		},

@@ -18,6 +18,7 @@ HTMLWidgets.widget({
     //   need to get rid of the global/window settings from settings.js
     var settings = window.settings.textView;
     settings.data = x.data.data;
+    settings.topics = x.data.topics;
     
     el.innerHTML = [
       '<div id="container"></div>',
@@ -30,8 +31,7 @@ HTMLWidgets.widget({
     // also need to eliminate this global/window variable
     //   for now though do the ugly
     window.data = x.data.data;
-    window.topics = x.data.topics;
-    
+
     instance.view = new TextView(settings)    
 
   },
