@@ -2,7 +2,7 @@
 var Chart = function() {}
 
 // Initialize -- passes defaults to chart
-Chart.prototype.init = function(settings) {
+Chart.prototype.init = function(sets) {
 	var self = this
 	var defaults = {
 		getHeight:function() {
@@ -64,7 +64,7 @@ Chart.prototype.init = function(settings) {
 			return {width:self.settings.pointRadius, height:self.settings.pointRadius}
 		}
 	}
-	self.settings = $.extend(false, defaults, settings)
+	self.settings = $.extend(false, defaults, sets)
 	self.data = self.settings.data
 	self.defineFunctions()
 	self.build()
