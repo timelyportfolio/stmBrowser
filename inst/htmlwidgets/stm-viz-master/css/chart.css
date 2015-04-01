@@ -103,13 +103,6 @@
 	width:100%;
 	top:0px;
 	left:0px;
-/* 
-  background: url(../imgs/elder_man_light.png) no-repeat center center fixed, rgba(255,255,255,0.4); 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
- */
 }
 
 .stmBrowser #chart-container {
