@@ -133,18 +133,19 @@ ScatterChart.prototype.drawCategoricalLegend = function() {
 					.data(legendData, function(d) {return d})
 					.enter().append('g')
 					.attr('class', 'legend-g')
-					.attr('transform', function(d,i) {return 'translate(0,' +((i*40) ) + ')' })
+					.attr('transform', function(d,i) {return 'translate(0,' +((i*20) ) + ')' })
 					
 	var legRects = labels.append('rect').call(self.legendRectFunc)
 		
 
-	var text = labels.append('text').call(self.legendTextFunc)
+	var text = labels.append('text').call(self.legendTextFunc);
+	text.style("font-size","0.6em")
 }
 
 // Legend for continous variables
 ScatterChart.prototype.drawContinuousLegend = function() {
 	var self = this
-	self.legendWrapper = self.div.append('div').attr('id', self.settings.id + '-legend-wrapper').style('margin-top', '26px')
+	self.legendWrapper = self.div.append('div').attr('id', self.settings.id + '-legend-wrapper').style('margin-top', '18px')
 	self.legendDiv = self.legendWrapper.append('div').attr('id', self.settings.id + '-legend-div')
 	self.legend = self.legendDiv
 		.append("svg")		
@@ -173,7 +174,7 @@ ScatterChart.prototype.drawContinuousLegend = function() {
 		.attr('class', 'axis')
 
 	self.legendText = self.legend.append('g')
-		.attr('transform', 'translate(' + (self.settings.legend.shift -50)+ ',' + (self.settings.legend.height/2 + 5) + ')')
+		.attr('transform', 'translate(' + (self.settings.legend.shift -60)+ ',' + (self.settings.legend.height/2 + 7) + ')')
 		.attr('class', 'legend-text')
 		.append('text')
 		.style('font-size', '.8em')
