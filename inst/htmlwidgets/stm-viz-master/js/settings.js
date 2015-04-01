@@ -7,6 +7,7 @@ var settings = {
 		},
 		charts:['scatterChart', 'textChart'], 
 		buildChart:function(view, chart, index) {
+
 			switch(chart) {
 				case 'scatterChart':
 					view.charts[index] = new ScatterChart(settings.scatterChart)
@@ -17,43 +18,7 @@ var settings = {
 				default:
 					break;
 			}
-		}, 
-		poshyEvents:[
-			{wrapper:'scatterChart-div', klass:'circle', content:function(d){
-				var dat = this.__data__
-				if(view.charts[0].settings.xScaleType == 'date') {
-					var formatter = d3.time.format("%d-%b-%Y");
-					var xVal = formatter(dat.x)
-				}
-				else var xVal =  view.charts[0].settings.xTickFormat(Number(dat.x))
-				var yVal = 'YVAL HERE'
-				
-				if(view.charts[0].settings.yScaleType == 'date') {
-					var formatter = d3.time.format("%d-%b-%Y");
-					var yVal = formatter(dat.y)
-				}
-				else var yVal = view.charts[0].settings.yTickFormat(Number(dat.y))
-				var text = '<b>' + view.settings.xVar + '</b>: ' + xVal + '</br>'
-				text += '<b>' + view.settings.yVar + '</b>: ' + yVal + '</br>'
-				text += dat.text.substr(0, 100) 
-				if(dat.text.length>100) text += '...'
-				return text
-			}},
-			// {wrapper:'scatterChart-div', klass:'axis', content:function(d){
-			{wrapper:'scatterChart-div', customSelect:'#scatterChart-div [class~="yaxis"] text', content:function(d){
-				test = this
-				var dat = $(this).attr('dat')
-				return d3.keys(view.charts[0].settings.yAxisLabels).length == 0 ? false :view.charts[0].settings.yTickFormat(dat)
-			}},
-			{wrapper:'scatterChart-div', customSelect:'#scatterChart-div [class~="xaxis"] text', content:function(d){
-				test = this
-				var dat = $(this).attr('dat')
-				return d3.keys(view.charts[0].settings.xAxisLabels).length == 0 ? false : view.charts[0].settings.xTickFormat(dat)
-			}},
-			{wrapper:'scatterChart-div', klass:'legend-text', content:function(d){
-				return view.charts[0].settings.legendLabel
-			}},
-		], 
+		},
 		clickEvents: [
 			{wrapper:'scatterChart-div', klass:'circle', attribute:'circle-id', setting:'selected'},
 		], 

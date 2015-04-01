@@ -79,10 +79,10 @@ TextView.prototype.prepData = function(chart) {
 				self.charts.map(function(chart,i) {
 					self.prepData(chart.settings.id)
 					self.changeTitle()
-					chart.update(settings[chart.settings.id], resetScale)
+					chart.update(self.settings[chart.settings.id], resetScale)
 				})
 			}
-			settings[chart].data = self.settings.data.map(function(d, i) {
+			self.settings[chart].data = self.settings.data.map(function(d, i) {
 				var id = self.settings.idVariable == undefined ? i : d[self.settings.idVariable]
 				if(self.isDate(self.settings.xVar)) var xVal = new Date(d[self.settings.xVar])
 				else var xVal = Number(d[self.settings.xVar]) != d[self.settings.xVar] ? self.settings.xAxisLabels[d[self.settings.xVar]] : d[self.settings.xVar]
@@ -91,23 +91,23 @@ TextView.prototype.prepData = function(chart) {
 				else var yVal = Number(d[self.settings.yVar]) != d[self.settings.yVar]  ? self.settings.yAxisLabels[d[self.settings.yVar]] : d[self.settings.yVar]
 				return {x:xVal, y:yVal, id:id, text:d.body, radiusValue:d[self.settings.radiusVar], colorValue:d[self.settings.colorVar]}
 			})
-			settings[chart].xLabel = self.settings.xVar
-			settings[chart].xScaleType = self.isDate(self.settings.xVar) ? 'date' : 'linear'
-			settings[chart].yScaleType = self.isDate(self.settings.yVar) ? 'date' : 'linear'
-			settings[chart].xAxisLabels = self.settings.xAxisLabels
-			settings[chart].yAxisLabels = self.settings.yAxisLabels
-			settings[chart].colorLabels = self.settings.colorLabels
-			settings[chart].colorVar = self.settings.colorVar
-			settings[chart].yLabel = self.settings.yVar
-			settings[chart].selected = self.settings.selected
-			settings[chart].legendLabel = self.settings.colorVar
+			self.settings[chart].xLabel = self.settings.xVar
+			self.settings[chart].xScaleType = self.isDate(self.settings.xVar) ? 'date' : 'linear'
+			self.settings[chart].yScaleType = self.isDate(self.settings.yVar) ? 'date' : 'linear'
+			self.settings[chart].xAxisLabels = self.settings.xAxisLabels
+			self.settings[chart].yAxisLabels = self.settings.yAxisLabels
+			self.settings[chart].colorLabels = self.settings.colorLabels
+			self.settings[chart].colorVar = self.settings.colorVar
+			self.settings[chart].yLabel = self.settings.yVar
+			self.settings[chart].selected = self.settings.selected
+			self.settings[chart].legendLabel = self.settings.colorVar
 			self.setRadius()
 			self.setColor()
 			break
 		case 'textChart':
 			var tmp = 
-			settings[chart].text = 'hello'
-			settings[chart].text = self.settings.data.filter(function(d){
+			self.settings[chart].text = 'hello'
+			self.settings[chart].text = self.settings.data.filter(function(d){
 				return String(d.id) == String(self.settings.selected)})[0].body
 			break
 
@@ -124,9 +124,9 @@ TextView.prototype.setRadius = function() {
 		var min = d3.min(self.settings.data, function(d){return Number(d[self.settings.radiusVar])})
 		var max = d3.max(self.settings.data, function(d){return Number(d[self.settings.radiusVar])})
 		var radScale = d3.scale.linear().range([self.settings.minRadius, self.settings.maxRadius]).domain([min,max])
-		settings['scatterChart'].getRadius = function(d) {return radScale(d.radiusValue)}	
+		self.settings['scatterChart'].getRadius = function(d) {return radScale(d.radiusValue)}	
 	}
-	settings['scatterChart'].getElementSize = function() {
+	self.settings['scatterChart'].getElementSize = function() {
 		var size = self.settings.radiusVar == 'none' ? 10 : self.settings.maxRadius
 		return {width:size, height:size}
 	}
@@ -134,9 +134,9 @@ TextView.prototype.setRadius = function() {
 
 TextView.prototype.setColor = function() {
 	var self = this
-	settings['scatterChart'].colorRange = self.settings.colorRange
+	self.settings['scatterChart'].colorRange = self.settings.colorRange
 	if(self.settings.colorVar == 'none') {
-		settings['scatterChart'].getColor = function(d) {
+		self.settings['scatterChart'].getColor = function(d) {
 			return self.settings.defaultColor}
 	}
 	else {
@@ -144,8 +144,8 @@ TextView.prototype.setColor = function() {
 		var max = d3.max(self.settings.data, function(d){return Number(d[self.settings.colorVar])})
 		var colorDomain = d3.range(max,min, -(max - min)/11)
 		var colorScale = Number(self.settings.data[0][self.settings.colorVar]) != self.settings.data[0][self.settings.colorVar] ? d3.scale.category10(): d3.scale.linear().range(self.settings.colorRange).domain(colorDomain)
-		settings['scatterChart'].getColor = function(d) {return colorScale(d)}	
-		settings['scatterChart'].legendScale = d3.scale.linear().domain([min,max])
+		self.settings['scatterChart'].getColor = function(d) {return colorScale(d)}	
+		self.settings['scatterChart'].legendScale = d3.scale.linear().domain([min,max])
 	}
 }
 
@@ -263,9 +263,9 @@ TextView.prototype.buildControls = function() {
 				id:'zoom', 
 				type:'buttons', 
 				options:[
-					{id:'in', text:'+', change:function(d){view.charts[0].zoomIn();$('#control-button-in').blur()}},
+					{id:'in', text:'+', change:function(d){self.charts[0].zoomIn();$('#control-button-in').blur()}},
 					{id:'reset', text:'•',  change:function(d){self.update('reset');$('#control-button-reset').blur()}},
-					{id:'out', text:'-',  change:function(d){view.charts[0].zoomOut();$('#control-button-out').blur()}}],
+					{id:'out', text:'-',  change:function(d){self.charts[0].zoomOut();$('#control-button-out').blur()}}],
 			}
 		}
 	})

@@ -32,7 +32,7 @@ dependencies:
 - name: stmBrowser
   version: 1.0
   src: htmlwidgets/stm-viz-master
-  script: ['js/settings.js','js/charts/Chart.js',
+  script: ['js/charts/Chart.js',
             'js/charts/ScatterChart.js','js/charts/TextChart.js',
             'js/views/SingleView.js','js/views/TextView.js']
   stylesheet: ['css/chart.css','css/TextView.css','css/tip.css']

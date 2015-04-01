@@ -34,12 +34,14 @@ SingleView.prototype.init = function(sets) {
 	self.build = function(init) {
 		var build = function() {
 			self.addTitle()		
-			if(self.settings.hasControls == true) self.buildControls()
+			
 			self.settings.charts.map(function(chart,i) {
-				settings[chart].container = settings[chart].container == undefined ? self.settings.chartContainer  : settings[chart].container
+				self.settings[chart].container = self.settings[chart].container == undefined ? self.settings.chartContainer  : self.settings[chart].container
 				self.prepData(chart)
 				self.settings.buildChart(self, chart, i)
-			})		
+			})			
+			
+			if(self.settings.hasControls == true) self.buildControls()
 
 		}
 		if(typeof self.settings.preLoad == 'function') {
@@ -48,9 +50,7 @@ SingleView.prototype.init = function(sets) {
 		else {
 			 build()
 		}
-		self.addClickEvents()
-		self.addHoverEvents()
-		self.addPoshyEvents()
+
 		if(typeof self.settings.customBuild == 'function') self.settings.customBuild()
 
 	}
@@ -60,6 +60,9 @@ SingleView.prototype.init = function(sets) {
 	if(typeof self.settings.resizeEvents == 'function') self.settings.resizeEvents(self)	
 	self.chartDiv = d3.select('#' + self.settings.container).append('div').attr('id', self.settings.chartContainer)
 	self.loadData(self.build)
+	self.addClickEvents()
+	self.addHoverEvents()
+	self.addPoshyEvents()	
 }
 
 // Load Data
@@ -81,7 +84,7 @@ SingleView.prototype.updateCharts = function(control,value) {
 // Prep view data
 SingleView.prototype.prepData = function(chart) {
 	var self = this
-	settings[chart].data = self.data
+	self.settings[chart].data = self.data
 }
 
 // Add title
@@ -169,7 +172,7 @@ SingleView.prototype.addHoverEvents = function() {
 SingleView.prototype.addPoshyEvents = function() {
 	var self = this
 	if(self.settings.poshyEvents == undefined) return
-	self.settings.poshyEvents.map(function(poshy) {
+	self.settings.poshyEvents.call(self).map(function(poshy) {
 		var args = {
 			slide: false, 
 			followCursor: true, 
