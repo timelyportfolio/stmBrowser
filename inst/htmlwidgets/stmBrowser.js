@@ -14,6 +14,11 @@ HTMLWidgets.widget({
 
   renderValue: function(el, x, instance) {
     
+    // for now get a scoped version of settings
+    //   need to get rid of the global/window settings from settings.js
+    var settings = window.settings.textView;
+    settings.data = x.data.data;
+    
     el.innerHTML = [
       '<div id="container"></div>',
       '<div id="bottom"></div>',
@@ -22,10 +27,12 @@ HTMLWidgets.widget({
       '</div>'
     ].join('\n')
     
+    // also need to eliminate this global/window variable
+    //   for now though do the ugly
     window.data = x.data.data;
     window.topics = x.data.topics;
     
-    instance.view = new TextView(settings.textView)    
+    instance.view = new TextView(settings)    
 
   },
 

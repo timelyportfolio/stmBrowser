@@ -157,7 +157,7 @@ TextView.prototype.loadData = function(callback) {
     	if(arguments[i].id != undefined) args.push(arguments[i].id)
     }
 	if(self.charts == undefined) self.charts = []
-	self.settings.data = data
+	//self.settings.data = data
 	if(self.settings.loadedData != true) self.getLabels()
 	self.settings.loadedData = true
 	if(typeof callback == 'function') {
