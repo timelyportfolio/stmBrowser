@@ -118,7 +118,7 @@ TextView.prototype.prepData = function(chart) {
 TextView.prototype.setRadius = function() {
 	var self = this
 	if(self.settings.radiusVar == 'none') {
-		settings['scatterChart'].getRadius = function(d) {return 10}
+		self.settings['scatterChart'].getRadius = function(d) {return 10}
 	}
 	else {
 		var min = d3.min(self.settings.data, function(d){return Number(d[self.settings.radiusVar])})
