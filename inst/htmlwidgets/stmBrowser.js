@@ -102,6 +102,8 @@ HTMLWidgets.widget({
   				var text = '<b>' + view.settings.xVar + '</b>: ' + xVal + '</br>'
   				text += '<b>' + view.settings.yVar + '</b>: ' + yVal + '</br>'
   				// dat.text[0] to work with jsonlite auto box
+  				// if not array then force to be an array
+  				if( typeof dat.text === "string" ) dat.text = [dat.text];
   				text += dat.text[0].substr(0, 100) 
   				if(dat.text[0].length>100) text += '...'
   				return text
