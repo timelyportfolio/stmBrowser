@@ -264,7 +264,7 @@ TextView.prototype.buildControls = function() {
 				type:'buttons', 
 				options:[
 					{id:'in', text:'+', change:function(d){self.charts[0].zoomIn();$('#control-button-in').blur()}},
-					{id:'reset', text:'•',  change:function(d){self.update('reset');$('#control-button-reset').blur()}},
+					{id:'reset', text:'\u25CF',  change:function(d){self.update('reset');$('#control-button-reset').blur()}},
 					{id:'out', text:'-',  change:function(d){self.charts[0].zoomOut();$('#control-button-out').blur()}}],
 			}
 		}
