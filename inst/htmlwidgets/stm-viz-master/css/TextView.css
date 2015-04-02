@@ -53,7 +53,7 @@
 
 .stmBrowser #credit {
 	position:relative;
-	right:90%;
+	text-align:right;
 	bottom:3px;
 	font-size:12px;
 }
