@@ -30,6 +30,7 @@
 
 .stmBrowser #textChart-wrapper{
 	overflow-y:auto;
+	line-height: 0.75;
 }
 
 .stmBrowser #textChart-divtitle {
