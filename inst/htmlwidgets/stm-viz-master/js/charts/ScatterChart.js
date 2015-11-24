@@ -25,7 +25,9 @@ var ScatterChart = function(sets) {
 		ordinalType:'overwrite',
 		legendType:'continuous',
 		getHeight:function(chart) {
-			var bottom = d3.keys(chart.settings.colorLabels).length != 0 | chart.settings.colorVar == 'none' ? 40 : 90
+			//var bottom = d3.keys(chart.settings.colorLabels).length != 0 | chart.settings.colorVar == 'none' ? 40 : 90
+			// much easier just to preserve space for legend than to keep up with state
+			var bottom = 90;
 			return $('#' + self.settings.container).innerHeight() - bottom - $('#bottom').height()
 		},
 		zoomAble:true,

@@ -35,14 +35,14 @@ SingleView.prototype.init = function(sets) {
 		var build = function() {
 			self.addTitle()		
 			
+			if(self.settings.hasControls == true) self.buildControls()			
+			
 			self.settings.charts.map(function(chart,i) {
 				self.settings[chart].container = self.settings[chart].container == undefined ? self.settings.chartContainer  : self.settings[chart].container
 				self.prepData(chart)
 				self.settings.buildChart(self, chart, i)
 			})			
 			
-			if(self.settings.hasControls == true) self.buildControls()
-
 		}
 		if(typeof self.settings.preLoad == 'function') {
 			self.settings.preLoad(self, self.settings.dataFile, build)
